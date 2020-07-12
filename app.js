@@ -25,7 +25,7 @@ connect.then(
 );
 // PORT AND HOSTNAME
 hostname = "localhost";
-port = 1000;
+PORT = 1000 || process.env.PORT;
 // VARIABLE
 const app = express();
 // PACKAGES PASSING PARAMETERS
@@ -53,6 +53,6 @@ app.use((error, req, res, next) => {
 });
 // RUNNING SERVER
 const server = http.createServer(app);
-server.listen(port, hostname, () => {
-  console.log(`Server is running at http://${hostname}:${port}`);
+server.listen(PORT, hostname, () => {
+  console.log(`Server is running at http://${hostname}:${PORT}`);
 });
