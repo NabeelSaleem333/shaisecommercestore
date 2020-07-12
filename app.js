@@ -9,7 +9,8 @@ const cors = require('cors');
 const productRouter = require("./api/resources/product/product.controller");
 const cartRouter = require('./api/resources/cart/cart.controller');
 // DATABASE CONNECTION 'MONGODB'
-const url = "mongodb://localhost:27017/ecommerce";
+// const url = "mongodb://localhost:27017/ecommerce";
+const url = "mongodb+srv://medical:express@medicalexpresscluster-hkv5p.mongodb.net/ecommerce?retryWrites=true&w=majority";
 const connect = mongoose.connect(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
