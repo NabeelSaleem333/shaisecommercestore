@@ -10,8 +10,8 @@ const productRouter = require("./api/resources/product/product.controller");
 const cartRouter = require('./api/resources/cart/cart.controller');
 // DATABASE CONNECTION 'MONGODB'
 // const url = "mongodb://localhost:27017/ecommerce";
-const url = "mongodb+srv://medical:express@medicalexpresscluster-hkv5p.mongodb.net/ecommerce?retryWrites=true&w=majority";
-const connect = mongoose.connect(url, {
+const mongoCon = "mongodb+srv://medical:express@medicalexpresscluster-hkv5p.mongodb.net/ecommerce?retryWrites=true&w=majority";
+const connect = mongoose.connect(mongoCon, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -53,6 +53,6 @@ app.use((error, req, res, next) => {
 });
 // RUNNING SERVER
 const server = http.createServer(app);
-server.listen(PORT, hostname, () => {
-  console.log(`Server is running at http://${hostname}:${PORT}`);
+server.listen(PORT, () => {
+  console.log(`Server is running at http://:${PORT}`);
 });
