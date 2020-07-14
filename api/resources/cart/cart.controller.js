@@ -1,5 +1,4 @@
 const express = require("express");
-const passport = require('passport');
 const Cart = require("./cart.model");
 const Product = require("../product/product.model");
 const cartRouter = express.Router();

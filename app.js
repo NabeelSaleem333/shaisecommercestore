@@ -1,10 +1,10 @@
 // PACKAGES
 const express = require("express");
 const mongoose = require("mongoose");
-const http = require("http");
+// const http = require("http");
 const logger = require("morgan");
 const cors = require("cors");
-const passport = require("passport");
+// const passport = require("passport");
 
 // USER DEFINED ROUTERS
 const setJWTStrategy = require("./api/middlewares/passport-jwt");
@@ -38,7 +38,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.json({ extended: false }));
 app.use(cors());
-app.use(passport.initialize());
+// app.use(passport.initialize());
 app.use(express.static(__dirname + "/public"));
 // USER DEFINED PACKAGES
 setJWTStrategy();
