@@ -4,9 +4,7 @@
   "description": "This Ecommerce store app is a demo app to get projects in from the compnay. Thanks",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app",
-    "build": "babel src -d dist --source-maps",
-    "serve": "node dist/app.js"
+    "start": "nodemon app"
   },
   "author": "Nabeel Saleem",
   "license": "ISC",
