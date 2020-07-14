@@ -7,7 +7,7 @@ const cors = require("cors");
 // const passport = require("passport");
 
 // USER DEFINED ROUTERS
-const setJWTStrategy = require("./api/middlewares/passport-jwt");
+// const setJWTStrategy = require("./api/middlewares/passport-jwt");
 
 const userRouter = require("./api/resources/user/user.controller");
 const productRouter = require("./api/resources/product/product.controller");
@@ -41,7 +41,7 @@ app.use(cors());
 // app.use(passport.initialize());
 app.use(express.static(__dirname + "/public"));
 // USER DEFINED PACKAGES
-setJWTStrategy();
+// setJWTStrategy();
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/carts", cartRouter);
