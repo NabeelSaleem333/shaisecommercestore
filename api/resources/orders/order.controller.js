@@ -11,12 +11,12 @@ get orders list
 orderRouter.route("/").get(async (req, res, next) => {
     try {
       const order1 = await Order.find();
-   
-      if(order1.length > 0) {
-        return res.json(order1);
-      } else {
-        return res.json(null);
-      }
+      return res.json(order1);
+      // if(order1.length > 0) {
+        
+      // } else {
+      //   return res.json(null);
+      // }
 
     } catch (error) {
       return res.json(error);
