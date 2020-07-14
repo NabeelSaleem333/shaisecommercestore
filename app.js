@@ -9,7 +9,7 @@ const cors = require("cors");
 // USER DEFINED ROUTERS
 // const setJWTStrategy = require("./api/middlewares/passport-jwt");
 
-const userRouter = require("./api/resources/user/user.controller");
+// const userRouter = require("./api/resources/user/user.controller");
 const productRouter = require("./api/resources/product/product.controller");
 const cartRouter = require("./api/resources/cart/cart.controller");
 const orderRouter = require("./api/resources/orders/order.controller");
@@ -42,7 +42,7 @@ app.use(cors());
 app.use(express.static(__dirname + "/public"));
 // USER DEFINED PACKAGES
 // setJWTStrategy();
-app.use("/api/users", userRouter);
+// app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/carts", cartRouter);
 app.use("/api/orders", orderRouter);
