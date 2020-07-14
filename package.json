@@ -5,16 +5,29 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon app",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src -d dist --source-maps",
+    "serve": "node dist/app.js"
   },
   "author": "Nabeel Saleem",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.10.4",
+    "babel-node": "0.0.1-security",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "http-status-code": "^2.1.0",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.23",
     "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
     "nodemon": "^2.0.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/node": "^7.10.4",
+    "@babel/preset-env": "^7.10.4"
   }
 }

@@ -3,13 +3,18 @@ const express = require("express");
 const mongoose = require("mongoose");
 const http = require("http");
 const logger = require("morgan");
-const cors = require('cors');
+const cors = require("cors");
+const passport = require("passport");
 
 // USER DEFINED ROUTERS
+const setJWTStrategy = require("./api/middlewares/passport-jwt");
+
+const userRouter = require("./api/resources/user/user.controller");
 const productRouter = require("./api/resources/product/product.controller");
-const cartRouter = require('./api/resources/cart/cart.controller');
+const cartRouter = require("./api/resources/cart/cart.controller");
+const orderRouter = require("./api/resources/orders/order.controller");
 // DATABASE CONNECTION 'MONGODB'
-// const url = "mongodb://localhost:27017/ecommerce";
+// const mongoCon = "mongodb://localhost:27017/ecommerce";
 const mongoCon = "mongodb+srv://medical:express@medicalexpresscluster-hkv5p.mongodb.net/ecommerce?retryWrites=true&w=majority";
 const connect = mongoose.connect(mongoCon, {
   useNewUrlParser: true,
@@ -25,7 +30,7 @@ connect.then(
 );
 // PORT AND HOSTNAME
 const hostname = "localhost";
-const PORT = process.env.PORT || 1000 ;
+const PORT = process.env.PORT || 1000;
 // VARIABLE
 const app = express();
 // PACKAGES PASSING PARAMETERS
@@ -33,10 +38,14 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.json({ extended: false }));
 app.use(cors());
+app.use(passport.initialize());
 app.use(express.static(__dirname + "/public"));
 // USER DEFINED PACKAGES
+setJWTStrategy();
+app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/carts", cartRouter);
+app.use("/api/orders", orderRouter);
 // Global Error Handler MiddleWare
 app.use((req, res, next) => {
   const error = new Error("Not Found");

@@ -10,7 +10,11 @@ const cartSchema = new Schema({
     type: Number,
     required: true,
   },
-});
+    userId: {
+      type: String,
+      required: true,
+    }
+}); 
 
 const Cart = mongoose.model("cart", cartSchema);
 module.exports = Cart;
